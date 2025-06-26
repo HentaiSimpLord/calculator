@@ -1,0 +1,20 @@
+@import "./variables.scss";
+
+#calculator {
+  border: 1px solid $dark-color;
+
+  width: 20rem;
+  height: 25rem;
+}
+
+#display-container {
+  border: 1px dotted red;
+  height: 4rem;
+  text-align: end;
+}
+
+#buttonbord-container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
