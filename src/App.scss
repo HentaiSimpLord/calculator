@@ -3,3 +3,27 @@
 #calculator {
   border: 1px solid variables.$secondary-color;
 }
+
+#display {
+  border-bottom: 1px solid variables.$secondary-color;
+  padding: 1rem;
+
+  text-align: end;
+  font-size: 8rem;
+  background-color: variables.$darker-color;
+  color: variables.$text-color;
+}
+
+#buttons {
+  padding: 1rem;
+  background-color: variables.$darker-color;
+}
+
+button {
+  padding: 0.3rem;
+  margin: 0.3rem;
+  font-size: 5rem;
+
+  border-radius: 0.3rem;
+  color: variables.$text-color;
+}

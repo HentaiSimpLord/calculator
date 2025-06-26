@@ -2,10 +2,12 @@ import buttons from "../buttons";
 
 export const Buttons = () => {
   return (
-    <>
-      {Object.entries(buttons).map(([btn, key]) => {
-        <button>test</button>;
-      })}
-    </>
+    <div id="buttons">
+      {Object.entries(buttons).map(([key, obj]) => (
+        <button key={key} id={obj.id}>
+          {obj.name}
+        </button>
+      ))}
+    </div>
   );
 };
