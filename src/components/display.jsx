@@ -1,9 +1,9 @@
 export const Display = ({ value, calculation }) => {
   return (
     <>
-      <div id="display">
-        <div id="calculation">test</div>
-        <div id="input">test</div>
+      <div id="display-container">
+        <div id="calculation">{calculation}</div>
+        <div id="display">{value}</div>
       </div>
     </>
   );
