@@ -10,7 +10,12 @@ function App() {
   return (
     <div id="calculator">
       <Display value={value} calculation={calculation} />
-      <Buttons setValue={setValue} setCalculation={setCalculation} />
+      <Buttons
+        setValue={setValue}
+        value={value}
+        setCalculation={setCalculation}
+        calculation={calculation}
+      />
     </div>
   );
 }

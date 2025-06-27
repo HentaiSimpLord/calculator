@@ -82,6 +82,7 @@ const buttons = {
   EqualsButton: {
     name: "=",
     id: "equals",
+    type: "equals",
   },
 };
 

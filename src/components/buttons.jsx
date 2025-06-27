@@ -1,23 +1,33 @@
 import { useState } from "react";
 import buttons from "../buttons";
+import { boolean, evaluate } from "mathjs";
 
 export const Buttons = (props) => {
-  const [shouldClear, setShouldClear] = useState(false);
+  const [shouldClear, setShouldClear] = useState([false, false]);
 
   const clearDisplay = () => {
     props.setValue("0");
+    setShouldClear([false, false]);
+  };
+  const clearCalculation = () => {
     props.setCalculation("0");
+    setShouldClear([false, false]);
   };
 
   const zeroAtStart = (arr) => {
-    if (arr[0] === "0") {
-      return true;
-    } else {
-      return false;
+    return arr[0] === "0" ? true : false;
+  };
+
+  const decimalInNumber = (arr) => {
+    if (Array.isArray(arr)) {
+      return arr.includes(".");
     }
   };
 
   const writeInDisplay = (btn) => {
+    console.log(decimalInNumber(props.value));
+    if (decimalInNumber(props.value) && btn.name === ".") return;
+
     props.setValue((prev) => {
       if (zeroAtStart(prev)) {
         const newPrev = prev.slice(1);
@@ -37,24 +47,47 @@ export const Buttons = (props) => {
   };
 
   const handleClick = (btn) => {
-    if (shouldClear) {
-      props.setValue([]);
-      setShouldClear(false);
+    switch (shouldClear.toString()) {
+      case "true,false":
+        clearDisplay();
+        break;
+      case "false,true":
+        clearCalculation();
+        break;
+      case "true,true":
+        if (btn.type !== "sign") clearCalculation(), clearDisplay();
+        // needs to clear calculation for further calculations
+        break;
+      default:
+        break;
     }
 
     switch (btn.type) {
       case "clear":
         clearDisplay();
+        clearCalculation();
         break;
       case "sign":
-        props.setValue((prev) => [...prev, btn.name]);
-        props.setCalculation((prev) => [...prev, btn.name]);
-        setShouldClear(true);
+        writeInDisplay(btn);
+        setShouldClear([true, false]);
         break;
       case "number":
         writeInDisplay(btn);
         break;
       case "equals":
+        props.setCalculation((prev) => {
+          const res = evaluate(prev.join(""));
+          const resArr = res.toString().split("").map(Number);
+
+          props.setValue(() => {
+            return resArr;
+          });
+
+          return [...prev, "=", resArr];
+        });
+
+        setShouldClear([true, true]);
+
         break;
       default:
         return btn.type;
