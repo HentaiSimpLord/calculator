@@ -1,89 +1,87 @@
-const buttons = {
-  ACButton: {
-    name: "AC",
+export const buttons = [
+  {
+    label: "AC",
     id: "clear",
     type: "clear",
   },
-  AddButton: {
-    name: "+",
+  {
+    label: "+",
     id: "add",
-    type: "sign",
+    type: "operator",
   },
-  SubtractButton: {
-    name: "-",
+  {
+    label: "-",
     id: "subtract",
-    type: "sign",
+    type: "operator",
   },
-  MultiplyButton: {
-    name: "*",
+  {
+    label: "*",
     id: "multiply",
-    type: "sign",
+    type: "operator",
   },
-  DivideButton: {
-    name: "/",
+  {
+    label: "/",
     id: "divide",
-    type: "sign",
+    type: "operator",
   },
-  DecimalButton: {
-    name: ".",
+  {
+    label: ".",
     id: "decimal",
     type: "number",
   },
-  ZeroButton: {
-    name: "0",
+  {
+    label: "0",
     id: "zero",
     type: "number",
   },
-  OneButton: {
-    name: "1",
+  {
+    label: "1",
     id: "one",
     type: "number",
   },
-  TwoButton: {
-    name: "2",
+  {
+    label: "2",
     id: "two",
     type: "number",
   },
-  ThreeButton: {
-    name: "3",
+  {
+    label: "3",
     id: "three",
     type: "number",
   },
-  FourButton: {
-    name: "4",
+  {
+    label: "4",
     id: "four",
     type: "number",
   },
-  FiveButton: {
-    name: "5",
+  {
+    label: "5",
     id: "five",
     type: "number",
   },
-  SixButton: {
-    name: "6",
+  {
+    label: "6",
     id: "six",
     type: "number",
   },
-  SevenButton: {
-    name: "7",
+  {
+    label: "7",
     id: "seven",
     type: "number",
   },
-  EightButton: {
-    name: "8",
+  {
+    label: "8",
     id: "eight",
     type: "number",
   },
-  NineButton: {
-    name: "9",
+  {
+    label: "9",
     id: "nine",
     type: "number",
   },
-  EqualsButton: {
-    name: "=",
+  {
+    label: "=",
     id: "equals",
     type: "equals",
   },
-};
-
-export default buttons;
+];
